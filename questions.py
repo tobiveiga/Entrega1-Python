@@ -1,17 +1,20 @@
 import random
 
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
+categorias = {
+    "Programación": ["python", "programa", "variable", "funcion", "bucle", "cadena", "entero", "lista"],
+    "Animales": ["perro", "gato", "lobo", "loro", "tortuga", "delfin", "aguila", "serpiente"],
+    "Frutas": ["manzana", "banana", "naranja", "frutilla", "sandia", "durazno", "mandarina", "uva"],
+}
 
+print("Categorías disponibles:")
+for i, categoria in enumerate(categorias, 1):
+    print(f"{i}. {categoria}")
+
+opcion = int(input("Elegí una categoría (número): "))
+categoria_elegida = list(categorias.keys())[opcion - 1]
+words = categorias[categoria_elegida]
 word = random.choice(words)
+
 guessed = []
 attempts = 6
 
